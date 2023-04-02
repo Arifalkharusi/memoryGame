@@ -1,0 +1,41 @@
+@mixin dimentions {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 200px;
+  width: 150px;
+  perspective: 500px;
+  margin-bottom: 20px;
+
+  .card {
+    @include dimentions();
+    position: relative;
+    transition: all 1s ease-in-out;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    .front,
+    .back {
+      border-radius: 20px;
+      position: absolute;
+      @include dimentions();
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      background: white;
+    }
+
+    .back {
+      background: rgb(218, 181, 152);
+      padding: 30px 10px;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+      img {
+        @include dimentions();
+      }
+    }
+  }
+}
